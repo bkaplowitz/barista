@@ -1,6 +1,6 @@
 from typing import Any, Literal
 
-from pydantic import BaseModel, Extra, root_validator
+from pydantic import BaseModel, Extra, root_validator 
 
 
 class MatchVariable(BaseModel, extra=Extra.forbid):
@@ -16,7 +16,7 @@ class Match(BaseModel, extra=Extra.forbid):
     vars: list[MatchVariable] | None = None
     propagate_case: bool | None = None
 
-    @root_validator
+    @root_validator(skip_on_failure=True)
     def check_trigger(cls, values: dict[str, Any]) -> dict[str, Any]:
         match values:
             case {"trigger": None, "triggers": None}:

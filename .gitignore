@@ -8,5 +8,9 @@ venv
 # Distribution
 dist/
 
+
 # Env
 .envrc
+
+src/match/personal_details.jsonnet
+.gitignore
