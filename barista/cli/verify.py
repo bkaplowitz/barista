@@ -41,9 +41,7 @@ def verify() -> None:
 
     duped_matches: dict[str, list[Match]] = {}
     for match in matches:
-        overlap = [i for i in match.triggers if i in dupes]
-
-        if overlap:
+        if overlap := [i for i in match.triggers if i in dupes]:
             i = overlap[0]
 
             if i in duped_matches:

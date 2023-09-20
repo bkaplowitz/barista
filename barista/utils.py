@@ -42,6 +42,4 @@ def find_files(src_path: Path, glob_pattern: str) -> list[Path]:
     Searches in `src_path`
     """
     files = src_path.glob(glob_pattern)
-    paths = [Path(file) for file in files]
-
-    return paths
+    return [Path(file) for file in files]

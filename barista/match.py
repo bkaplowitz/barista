@@ -42,8 +42,4 @@ class Match:
     def matches_from_path(cls, path: Path) -> list[Match]:
         obj = load_jsonnet(path)
 
-        matches = []
-        for entry in obj["matches"]:
-            matches.append(cls.from_obj(entry, path))
-
-        return matches
+        return [cls.from_obj(entry, path) for entry in obj["matches"]]
